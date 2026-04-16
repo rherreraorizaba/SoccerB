@@ -1,8 +1,8 @@
 package equipo.futbol.excepciones;
 
-public class ExcecionDeJugadorInvalido extends Exception {
+public class ExcepcionDeJugadorInvalido extends Exception {
 
-    public ExcecionDeJugadorInvalido(String mensaje) {
+    public ExcepcionDeJugadorInvalido(String mensaje) {
         super(mensaje);
     }
 }
