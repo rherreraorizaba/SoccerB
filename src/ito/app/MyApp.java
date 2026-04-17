@@ -1,26 +1,38 @@
 package ito.app;
+import equipo.futbol.excepciones.*;
+import equipo.futbol.lista.Equipo;
 import equipo.futbol.soccer.Defensa;
 import equipo.futbol.soccer.Delantero;
 import equipo.futbol.soccer.Jugador;
-
+import equipo.futbol.soccer.Portero;
 
 
 public class MyApp {
 
     public static void main(String[] args) {
-        Object d= new Delantero("Juan Perez",20,56);
-        Jugador e= new Delantero("Juanita Lopez",19,11);
-        Delantero f= new Delantero("Pedro Torres",20,672);
-        Defensa defensa;
+        Equipo equipo = new Equipo("Buhos","B");
 
-        f.juegaPartido();
-        e.juegaPartido();
+        try {
+            equipo.agregaJugador(new Portero("Hugo Perez",23,1,156));
+            equipo.agregaJugador(new Defensa("Jorge Lopez",25,5,"Central"));
+            equipo.agregaJugador(new Portero("Memo Ochoa",42,45,186));
+            equipo.agregaJugador(new Portero("Luis Perez",21,19,196));
+            equipo.agregaJugador(new Defensa("Puyol",33,17,"Central"));
+            equipo.agregaJugador(new Portero("Hugo Perez",23,18,156));
+        } catch (ExcepcionDeJugadorInvalido e) {
+            System.err.println(e.getMessage());
+        } catch (ExcepcionDeCantidadDeJugadoresAlMaximo e) {
+            System.err.println(e.getMessage());
+        } catch (ExcepcionDeNumeroDeCamisetaRepetido e) {
+            System.err.println(e.getMessage());
+        } catch (ExcepcionDePorterosAlMaximo e) {
+            System.err.println(e.getMessage());
+        } catch (ExcepcionDeNumeroDeCamisetaInvalido e) {
+            System.err.println(e.getMessage());
+        } catch (ExcepcionDeEdadFueraDeLimites e) {
+            System.err.println(e.getMessage());
+        }
 
-
-        System.out.println(d);
-        System.out.println(e);
-        System.out.println(f);
-
-        System.out.println(d.getClass());
+        System.out.println("Programa terminado");
     }
 }

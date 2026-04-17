@@ -1,5 +1,7 @@
 package equipo.futbol.soccer;
 
+import equipo.futbol.excepciones.ExcepcionDeEdadFueraDeLimites;
+
 import java.util.Objects;
 import java.util.Comparator;
 
@@ -15,7 +17,7 @@ public class Defensa extends Jugador{
         }
     };
 
-    public Defensa(String nombre, int edad, int numeroDeCamiseta,String tipoDeDefensa){
+    public Defensa(String nombre, int edad, int numeroDeCamiseta,String tipoDeDefensa) throws ExcepcionDeEdadFueraDeLimites {
         super(nombre, edad, numeroDeCamiseta);
         this.tipoDeDefensa=tipoDeDefensa;
         this.cantidadDeBalonesRecuperados=0;

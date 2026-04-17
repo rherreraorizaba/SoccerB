@@ -1,5 +1,7 @@
 package equipo.futbol.soccer;
 
+import equipo.futbol.excepciones.ExcepcionDeEdadFueraDeLimites;
+
 public class MedioCampista extends Jugador{
 
     private int cantidadPasesCorrectos;
@@ -7,7 +9,7 @@ public class MedioCampista extends Jugador{
     private int cantidadDeAsistencias;
 
 
-    public MedioCampista(String nombre, int edad, int numeroDeCamiseta) {
+    public MedioCampista(String nombre, int edad, int numeroDeCamiseta) throws ExcepcionDeEdadFueraDeLimites {
         super(nombre, edad, numeroDeCamiseta);
         this.cantidadPasesCorrectos = 0;
         this.cantidadPasesIncorrectos = 0;

@@ -1,5 +1,7 @@
 package equipo.futbol.soccer;
 
+import equipo.futbol.excepciones.ExcepcionDeEdadFueraDeLimites;
+
 import java.util.Comparator;
 
 public class Portero extends Jugador{
@@ -15,7 +17,7 @@ public class Portero extends Jugador{
         }
     };
 
-    public Portero(String nombre, int edad, int numeroDeCamiseta, int estatura) {
+    public Portero(String nombre, int edad, int numeroDeCamiseta, int estatura) throws ExcepcionDeEdadFueraDeLimites {
         super(nombre, edad, numeroDeCamiseta);
         this.estatura = estatura;
         this.cantidadDeGolesRecibidos = 0;

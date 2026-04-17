@@ -1,11 +1,13 @@
 package equipo.futbol.soccer;
 
+import equipo.futbol.excepciones.ExcepcionDeEdadFueraDeLimites;
+
 public class Delantero extends Jugador{
 
     private int cantidadDeRemates;
     private float velocidadPromedioTiro;
 
-    public Delantero(String nombre,int edad,int numeroDeCamiseta){
+    public Delantero(String nombre,int edad,int numeroDeCamiseta) throws ExcepcionDeEdadFueraDeLimites {
         super(nombre,edad,numeroDeCamiseta);
         this.cantidadDeRemates = 0;
         this.velocidadPromedioTiro = 0;

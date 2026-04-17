@@ -1,5 +1,7 @@
 package equipo.futbol.soccer;
 
+import equipo.futbol.excepciones.ExcepcionDeEdadFueraDeLimites;
+
 import java.util.Objects;
 import java.util.Comparator;
 
@@ -9,6 +11,8 @@ public class Jugador implements Comparable<Jugador>{
     private int numeroDeCamiseta;
     private int golesAnotados;
     private int partidosJugados;
+    private final int EDAD_MINIMA=16;
+    private final int EDAD_MAXIMA=50;
 
     private static Comparator<Jugador> c= new Comparator<Jugador>(){
         public int compare(Jugador o1, Jugador o2){
@@ -24,12 +28,17 @@ public class Jugador implements Comparable<Jugador>{
         c=comparator;
     }
 
-    public Jugador(String nombre, int edad, int numeroDeCamiseta) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.numeroDeCamiseta = numeroDeCamiseta;
-        this.golesAnotados = 0;
-        this.partidosJugados = 0;
+    public Jugador(String nombre, int edad, int numeroDeCamiseta) throws
+            ExcepcionDeEdadFueraDeLimites {
+        if(edad>=EDAD_MINIMA && edad<=EDAD_MAXIMA) {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.numeroDeCamiseta = numeroDeCamiseta;
+            this.golesAnotados = 0;
+            this.partidosJugados = 0;
+        }else
+            throw new ExcepcionDeEdadFueraDeLimites("La edad del jugador es invalida!!");
+
     }
 
     public void juegaPartido(){
@@ -59,7 +68,9 @@ public class Jugador implements Comparable<Jugador>{
     public String getNombre() {
         return nombre;
     }
-    public void cumpleAños(){
+    public void cumpleAños() throws ExcepcionDeEdadFueraDeLimites {
+        if(edad==EDAD_MAXIMA)
+            throw new ExcepcionDeEdadFueraDeLimites("El jugador va a cumplir la edad Máxima debe ser dado de baja!!");
         this.edad++;
     }
     public int getEdad() {
